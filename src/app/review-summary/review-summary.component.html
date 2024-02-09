@@ -1,0 +1,32 @@
+
+<div class="container">
+        <h3>Resumen de la reserva actual</h3>
+        <mat-list>
+          <mat-list-item>
+            <span matListItemTitle>Nombre completo</span>
+            <span matListItemLine>{{deliveries.cliente.nombre}}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>Telefono</span>
+            <span>{{deliveries.cliente.telefono}}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>Correo</span>
+            <span>{{deliveries.cliente.email}}</span>
+         
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>Fecha de entrega</span>
+            <span>{{deliveries.pedido.fecha_entrega}}</span>
+         
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>Hora de entrega</span>
+            <span>{{deliveries.pedido.hora_entrega}}</span>
+         
+          </mat-list-item>
+        </mat-list>
+    
+        
+      </div>
+   

@@ -1,0 +1,46 @@
+
+  <h2 class="modal-title">Reserva de Entrega de Pedido</h2>
+ <hr class="divider">
+ <h4 class="modal-subtitle">Ingrese los datos solicitados</h4>
+ <mat-dialog-content>
+    <form [formGroup]="reserveForm">
+
+        <div class="card">
+            <p class="title-label-hour">Horas de Entrega Disponibles</p>
+            <mat-radio-group formControlName="hora" [(ngModel)]="hora" aria-labelledby="example-radio-group-label" class="example-radio-group">
+              <div class="grid-container">
+                <mat-radio-button class="example-radio-button" *ngFor="let hour of horas" [value]="hour" [color]="isHoraSelected(hour) ? 'primary' : 'accent'" [disabled]="isHoraSelected(hour)">
+                  {{ hour }}
+                </mat-radio-button>
+              </div>
+            </mat-radio-group>
+          </div>
+        <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile><mat-form-field  appearance="outline">
+                <mat-label>Nombre Completo</mat-label>
+                <input matInput  formControlName="nombre">
+                <mat-error *ngIf="reserveForm.controls.nombre.invalid">Comple el campo</mat-error>
+              </mat-form-field></mat-grid-tile>
+            <mat-grid-tile><mat-form-field  appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput  formControlName="email">
+                <mat-error *ngIf="reserveForm.controls.email.invalid">Comple el campo</mat-error>
+              </mat-form-field></mat-grid-tile>
+            <mat-grid-tile><mat-form-field  appearance="outline">
+                <mat-label>Telefono</mat-label>
+                <input matInput  formControlName="telefono">
+                <mat-error *ngIf="reserveForm.controls.telefono.invalid">Comple el campo</mat-error>
+              </mat-form-field></mat-grid-tile>
+            <mat-grid-tile><mat-form-field  appearance="outline">
+                <mat-label>Fecha de Entrega</mat-label>
+                <input matInput  formControlName="fecha_entrega" [(ngModel)]="date">
+                <mat-error *ngIf="reserveForm.controls.fecha_entrega.invalid">Comple el campo</mat-error>
+              </mat-form-field></mat-grid-tile>
+          </mat-grid-list>
+   
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close color="warn">Cancelar</button>
+    <button mat-raised-button  color="primary" (click)="saveReserve()" [disabled]="reserveForm.invalid">{{btnAction}}</button>
+  </mat-dialog-actions>

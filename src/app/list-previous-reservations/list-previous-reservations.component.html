@@ -1,0 +1,41 @@
+
+<div class="container">
+  <button  color="primary" (click)="goBack()"  mat-fab extended >
+    <mat-icon>home</mat-icon>
+    <span style="margin-left: 5px;">Inicio</span>
+  </button>
+  <h2>Historial de reservaciones</h2>
+  <mat-progress-bar *ngIf="!loading" mode="indeterminate" class="progress"></mat-progress-bar>
+<table mat-table [dataSource]="data" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef>Nombre completo</th>
+    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="telefono">
+    <th mat-header-cell *matHeaderCellDef> Telefono </th>
+    <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Correo </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fecha_entrega">
+    <th mat-header-cell *matHeaderCellDef> Fecha de entrega </th>
+    <td mat-cell *matCellDef="let element"> {{element.fecha_entrega}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="hora_entrega">
+    <th mat-header-cell *matHeaderCellDef> Hora de entrega</th>
+    <td mat-cell *matCellDef="let element"> {{element.hora_entrega}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+ 
+</table>
+</div>
