@@ -9,7 +9,7 @@
             <p class="title-label-hour">Horas de Entrega Disponibles</p>
             <mat-radio-group formControlName="hora" [(ngModel)]="hora" aria-labelledby="example-radio-group-label" class="example-radio-group">
               <div class="grid-container">
-                <mat-radio-button class="example-radio-button" *ngFor="let hour of horas" [value]="hour" [color]="isHoraSelected(hour) ? 'primary' : 'accent'" [disabled]="isHoraSelected(hour)">
+                <mat-radio-button class="example-radio-button" *ngFor="let hour of horas" [value]="hour"  [disabled]="isHoraSelected(hour)">
                   {{ hour }}
                 </mat-radio-button>
               </div>
